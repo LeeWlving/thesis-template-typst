@@ -3,6 +3,7 @@
   degree: "",
   program: "",
   author: "",
+  year: "",
 ) = {
   set page(
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
@@ -23,23 +24,26 @@
 
   
   // --- Cover ---
-  v(1cm)
-  align(center, image("../figures/tum_logo.png", width: 26%))
 
   v(5mm)
-  align(center, text(font: sans-font, 2em, weight: 700, "Technical University of Munich"))
-
-  v(5mm)
-  align(center, text(font: sans-font, 1.5em, weight: 100, "School of Computation, Information and Technology \n -- Informatics --"))
-  
-  v(15mm)
-
-  align(center, text(font: sans-font, 1.3em, weight: 100, degree + "’s Thesis in " + program))
-  v(15mm)
-  
-
   align(center, text(font: sans-font, 2em, weight: 700, title))
+  v(1cm)
+  align(center, text(font: sans-font, 1.5em,  "by"))
+  v(5mm)
+  align(center, text(font: sans-font, 2em, weight: 500, author))
+   v(1cm)
+
+  align(center, text(font: sans-font, 1.3em, weight: 100, degree + " in " + program))
+  v(15mm)
+  
+
+  align(center, text(font: sans-font, 2em, weight: 700, year))
   
   v(10mm)
-  align(center, text(font: sans-font, 2em, weight: 500, author))
+  
+  align(center, image("../figures/umaclogo.png", width: 26%))
+  v(15mm)
+  align(center, text(font: sans-font, 1.5em, weight: 100, "Faculty of Science and Technology \n University of Macau"))
+  
+  
 }

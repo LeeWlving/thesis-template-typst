@@ -22,19 +22,22 @@
   transparency_ai_tools: "",
   is_print: false,
   body,
+  year:"2024",
 ) = {
   cover(
     title: title,
     degree: degree,
     program: program,
     author: author,
+    year: year,
   )
 
   pagebreak()
+  
 
   titlepage(
     title: title,
-    titleGerman: titleGerman,
+    // titleGerman: titleGerman,
     degree: degree,
     program: program,
     supervisor: supervisor,
@@ -52,17 +55,18 @@
     author: author,
     submissionDate: submissionDate
   )
-  transparency_ai_tools_layout(transparency_ai_tools)
+  // transparency_ai_tools_layout(transparency_ai_tools)
 
   print_page_break(print: is_print)
   
-  acknowledgement_layout(acknowledgement)
-
-  print_page_break(print: is_print)
+  
 
   abstract(lang: "en")[#abstract_en]
-  abstract(lang: "de")[#abstract_de]
+  // abstract(lang: "de")[#abstract_de]
 
+  // List of figures.
+  // pagebreak()
+  
   set page(
     margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
     numbering: "1",
@@ -102,7 +106,7 @@
   set par(leading: 1em)
 
   // --- Citations ---
-  set cite(style: "alphanumeric")
+  set cite(style: "institute-of-electrical-and-electronics-engineers")
 
   // --- Figures ---
   show figure: set text(size: 0.85em)
@@ -115,18 +119,6 @@
     },
     indent: 2em
   )
-  
-  
-  v(2.4fr)
-  pagebreak()
-
-
-  // Main body.
-  set par(justify: true, first-line-indent: 2em)
-
-  body
-
-  // List of figures.
   pagebreak()
   heading(numbering: none)[List of Figures]
   outline(
@@ -141,6 +133,19 @@
     title: "",
     target: figure.where(kind: table)
   )
+  pagebreak()
+  v(2.4fr)
+  
+  acknowledgement_layout(acknowledgement)
+
+  print_page_break(print: is_print)
+
+  // Main body.
+  set par(justify: true, first-line-indent: 2em)
+
+  body
+
+  
 
   // Appendix.
   pagebreak()
@@ -148,5 +153,5 @@
   include("/layout/appendix.typ")
 
   pagebreak()
-  bibliography("/thesis.bib")
+  bibliography("/thesis.bib", style: "spie")
 }
